@@ -1,0 +1,58 @@
+//FontFace
+
+//Google font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+//Fonts
+$font-family-base:      'Poppins', sans-serif;
+
+$font-weight-regular:       400;
+$font-weight-medium:        500;
+$font-weight-semi-bold:     600;
+$font-weight-bold:          700;
+
+//Font size
+$font-size-smallest:    14px;
+$font-size-small:       15px;
+$font-size-small-bigger:18px;
+$font-size-medium-less: 18px;
+$font-size-medium-mobile:22px;
+$font-size-medium:      24px;
+$font-size-big-mobile:  26px;
+$font-size-big:         36px;
+$font-size-large-mobile:38px;
+$font-size-large:       40px;
+$font-size-large-tablet:42px;
+$font-size-largest:     44px;
+$font-size-largest-tablet: 46px;
+
+
+
+//Elements font-size
+$font-size-default:         $font-size-small;
+$font-size-h1:              $font-size-largest;
+$font-size-h2:              $font-size-large;
+$font-size-h3:              $font-size-big;
+$font-size-h4:              $font-size-medium;
+$font-size-h5:              $font-size-medium-less;
+$font-size-h6:              $font-size-small-bigger;
+
+$font-size-p:               $font-size-small;
+/*$font-size-quote:           $font-size-smallest;
+$font-size-attribution:     $font-size-smallest;*/
+
+$font-size-h1-tablet:       $font-size-largest-tablet;
+$font-size-h2-tablet:       $font-size-large-tablet;
+$font-size-h3-tablet:       $font-size-medium;
+$font-size-h4-tablet:       $font-size-medium-mobile;
+$font-size-h5-tablet:       $font-size-small-bigger;
+$font-size-h6-tablet:       $font-size-small;
+
+$font-size-h1-mobile:       $font-size-large-mobile;
+$font-size-h2-mobile:       $font-size-big-mobile;
+$font-size-h3-mobile:       $font-size-medium-mobile;
+$font-size-h4-mobile:       $font-size-small-bigger;
+
+
+//Line-height
+$line-height-default:      1.5;

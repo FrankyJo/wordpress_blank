@@ -1,0 +1,21 @@
+@mixin link-underline {
+    &:hover {
+        text-decoration: none;
+    }
+    &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 1px;
+        background: $orange;
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+    }
+    &:hover:after {
+        width: 100%;
+    }
+    &:active {
+        color: #F47631;
+    }
+}
