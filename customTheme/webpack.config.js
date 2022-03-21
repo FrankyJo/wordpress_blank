@@ -17,7 +17,7 @@ const PATHS = {
     src: path.resolve(__dirname, 'src'),
     src_js: path.resolve(__dirname, 'src/js'),
     src_css: path.resolve(__dirname, 'src/css'),
-    src_img: path.resolve(__dirname, 'src/img'),
+    src_img: path.resolve(__dirname, 'src/images'),
     public_img: path.resolve(__dirname, 'public/'),
 };
 
@@ -137,8 +137,7 @@ module.exports = api => ({
         new CopyPlugin({
             patterns: [
                 {from: `${PATHS.src_img}`, to: `img`},
-                {from: `${PATHS.src}/media`, to: `media`},
-                {from: `${PATHS.src}/animations`, to: `animations`}
+                {from: `${PATHS.src}/media`, to: `media`}
             ]
         })
     ],
