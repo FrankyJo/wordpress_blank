@@ -51,26 +51,6 @@ remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 /** END */
 
 
-
-/**
- *
- * 301-й редирект со страниц из массива на главную
- *
- */
-function customRedirect()
-{
-  $arr = [''];
-  $page_slug = get_query_var('pagename');
-  $redirect_url = pll_default_language() === CURRENT_LANG ? '/' : '/'. CURRENT_LANG . '/';
-
-  if (in_array($page_slug, $arr)) {
-    wp_redirect($redirect_url, 301);
-  }
-}
-
-add_action('wp', 'customRedirect');
-
-
 /*Филттры относящиеся к коротким описаниям*/
 add_filter('excerpt_length', function () {
     return 25;
