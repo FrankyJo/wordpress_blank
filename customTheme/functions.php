@@ -10,6 +10,7 @@ define('ASSETS_URI', get_template_directory_uri() . "/public/");
  * require another function
  */
 require_once(APP_DIR . '/core/postTypes.php');
+require_once(APP_DIR . '/core/customFieldProfile.php');
 require_once(APP_DIR . '/core/taxonomies.php');
 
 require_once(APP_DIR . '/front/menuCreator.php');
