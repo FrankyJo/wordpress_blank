@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ole.andreynik
- * Date: 7/17/2018
- * Time: 4:42 PM
- */
-
 
 add_action('init', 'initAllTaxonomies');
 function initAllTaxonomies()
