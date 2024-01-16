@@ -37,7 +37,7 @@ module.exports = api => ({
     entry: {
         ...getEntries(`${PATHS.src_js}/main.js`, 'js'),
         ...getEntries(`${PATHS.src_js}/pages/*.js`, 'js'),
-        ...getEntries(`${PATHS.src_css}/pages/*/*.scss`, 'css'),
+        ...getEntries(`${PATHS.src_css}/pages/**/*.scss`, 'css'),
     },
     output: {
         path: path.resolve(__dirname, 'public'),
