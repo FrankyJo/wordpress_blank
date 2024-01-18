@@ -19,7 +19,7 @@ require_once(APP_DIR . '/front/addScripts.php');
 
 require_once (APP_DIR . '/wpFilters.php');
 require_once(APP_DIR . '/actionAjax.php');
-require_once(APP_DIR . '/themeFunctons.php');
+require_once(APP_DIR . '/themeFunctions.php');
 
 
 /**
