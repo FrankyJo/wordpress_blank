@@ -17,7 +17,7 @@ const PATHS = {
     src: path.resolve(__dirname, 'src'),
     src_js: path.resolve(__dirname, 'src/js'),
     src_css: path.resolve(__dirname, 'src/css'),
-    src_img: path.resolve(__dirname, 'src/images'),
+    src_img: path.resolve(__dirname, 'src/image'),
     public_img: path.resolve(__dirname, 'public/'),
 };
 
@@ -74,7 +74,12 @@ module.exports = api => ({
                 include: PATHS.src_css,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: false,
+                        },
+                    },
                     'postcss-loader',
                     'sass-loader',
                 ]
@@ -88,7 +93,6 @@ module.exports = api => ({
                             name: '[path][name].[ext]',
                             context: path.resolve(__dirname, 'src/'),
                             publicPath: '../',
-                            useRelativePaths: true,
                         },
                     }
                 ],
@@ -136,7 +140,7 @@ module.exports = api => ({
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-                {from: `${PATHS.src_img}`, to: `img`},
+                {from: `${PATHS.src_img}`, to: `image`},
                 {from: `${PATHS.src}/media`, to: `media`}
             ]
         })

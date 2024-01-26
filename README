@@ -1,3 +1,9 @@
+Version 1.2.0
+
+Update packages and this config work stable with nodejs 20
+Edit webpack config
+Edit path
+
 Version 1.1.0
 
 Оновлення залежностей npm

@@ -1,0 +1,1 @@
+{"version":3,"file":"css/index.css","mappings":";;;AAAA,MAAM,UAEN,MACI,iDACA,cAGJ,C","sources":["webpack://Custom Theme/./src/css/pages/index.scss"],"sourcesContent":[".test{color: blue;}\n\nbody {\n    background-image: url(\"../../image/home/Group.png\");\n    font-size: 22px;\n}\n\n"],"names":[],"sourceRoot":""}

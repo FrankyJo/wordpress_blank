@@ -1,0 +1,1 @@
+{"version":3,"file":"css/critical/critical-home.css","mappings":";;;AAAA,UACE,SACF,C","sources":["webpack://Custom Theme/./src/css/pages/home/critical-home.scss"],"sourcesContent":[".critical{\n  color: red;\n}\n"],"names":[],"sourceRoot":""}

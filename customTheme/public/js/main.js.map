@@ -1,0 +1,1 @@
+{"version":3,"file":"js/main.js","mappings":"AAAAA,MAAM","sources":["webpack://Custom Theme/./src/js/pages/main.js"],"sourcesContent":["alert('okay');\n"],"names":["alert"],"sourceRoot":""}

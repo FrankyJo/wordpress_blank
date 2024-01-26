@@ -26,7 +26,7 @@ function loadCriticalCss()
 
     if ($page_template) {
 
-        $pattern = '/^templates\/page-(.*).php$/';
+        $pattern = '/^pages\/page-(.*).php$/';
         preg_match($pattern, $page_template, $result);
         $criticalCss = file_get_contents(ASSETS_DIR . '/css/critical/critical-' . $result[1] . '.css');
     }
@@ -59,7 +59,7 @@ function hardLoadCriticalCss()
         $criticalCss = file_get_contents(ASSETS_DIR . '/css/critical/critical-blog.css');
     }
 
-    if( is_page_template('templates/page-event-details-ny.php') ){
+    if( is_page_template('pages/page-event-details-ny.php') ){
         $criticalCss = file_get_contents(ASSETS_DIR . '/css/critical/critical-event-details.css');
     }
 

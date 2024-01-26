@@ -1,0 +1,1 @@
+{"version":3,"file":"css/home.css","mappings":";;;AAAA,KACI,qBACJ,C","sources":["webpack://Custom Theme/./src/css/pages/home/home.scss"],"sourcesContent":["body{\n    background-color: blue;\n}\n"],"names":[],"sourceRoot":""}
