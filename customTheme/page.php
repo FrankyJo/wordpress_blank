@@ -2,7 +2,7 @@
 
 
 get_header();
-wp_enqueue_style('page_default', get_template_directory_uri() . '/assets/css/pages/default/default.css');
+wp_enqueue_style('page_default', get_template_directory_uri() . '/public/css/pages/default/default.css');
 get_template_part('blocks/breadcrumbs/breadcrumbs_v1');
 
 
