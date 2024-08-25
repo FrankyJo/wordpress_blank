@@ -10,20 +10,20 @@
  *
  * version 3.3.2
  */
-function phonexa_breadcrumbs($sep = ' > ', $l10n = array(), $args = array())
+function breadcrumbs($sep = ' > ', $l10n = array(), $args = array())
 {
-    $pb = new Phonexa_Breadcrumbs;
+    $pb = new Breadcrumbs;
     echo $pb->get_crumbs($sep, $l10n, $args);
 }
 
-class Phonexa_Breadcrumbs
+class Breadcrumbs
 {
 
     public $arg;
 
     // Локализация
     static $l10n = array(
-        'home' => 'Phonexa',
+        'home' => 'Home',
         'paged' => 'Page %d',
         '_404' => 'Error 404',
         'search' => 'Search',
@@ -47,7 +47,7 @@ class Phonexa_Breadcrumbs
         'last_sep' => true,  // показывать последний разделитель, когда заголовок в конце не отображается
         'markup' => 'schema.org', // 'markup' - микроразметка. Может быть: 'rdf.data-vocabulary.org', 'schema.org', '' - без микроразметки
         // или можно указать свой массив разметки:
-        // array( 'wrappatt'=>'<div class="phonexa_breadcrumbs">%s</div>', 'linkpatt'=>'<a href="%s">%s</a>', 'sep_after'=>'', )
+        // array( 'wrappatt'=>'<div class="breadcrumbs">%s</div>', 'linkpatt'=>'<a href="%s">%s</a>', 'sep_after'=>'', )
         'priority_tax' => array('category'), // приоритетные таксономии, нужно когда запись в нескольких таксах
         'priority_terms' => array(), // 'priority_terms' - приоритетные элементы таксономий, когда запись находится в нескольких элементах одной таксы одновременно.
         // Например: array( 'category'=>array(45,'term_name'), 'tax_name'=>array(1,2,'name') )
@@ -69,8 +69,8 @@ class Phonexa_Breadcrumbs
         self::$args['sep'] = $sep;
 
         // Фильтрует дефолты и сливает
-        $loc = (object)array_merge(apply_filters('phonexa_breadcrumbs_default_loc', self::$l10n), $l10n);
-        $arg = (object)array_merge(apply_filters('phonexa_breadcrumbs_default_args', self::$args), $args);
+        $loc = (object)array_merge(apply_filters('breadcrumbs_default_loc', self::$l10n), $l10n);
+        $arg = (object)array_merge(apply_filters('breadcrumbs_default_args', self::$args), $args);
 
         $arg->sep = ''; // дополним ( пример сепаратора: <span class="kb_sep">'. $arg->sep .'</span>)
 
@@ -84,19 +84,19 @@ class Phonexa_Breadcrumbs
 
             // Разметка по умолчанию
             if (!$mark) $mark = array(
-                'wrappatt' => '<div class="phonexa_breadcrumbs ">%s</div>',
+                'wrappatt' => '<div class="breadcrumbs ">%s</div>',
                 'linkpatt' => '<a href="%s">%s</a>',
                 'sep_after' => '',
             );
             // rdf
             elseif ($mark === 'rdf.data-vocabulary.org') $mark = array(
-                'wrappatt' => '<div class="phonexa_breadcrumbs" prefix="v: http://rdf.data-vocabulary.org/#">%s</div>',
+                'wrappatt' => '<div class="breadcrumbs" prefix="v: http://rdf.data-vocabulary.org/#">%s</div>',
                 'linkpatt' => '<span typeof="v:Breadcrumb"><a href="%s" rel="v:url" property="v:title">%s</a>',
                 'sep_after' => '</span>', // закрываем span после разделителя!
             );
             // schema.org
             elseif ($mark === 'schema.org') $mark = array(
-                'wrappatt' => '<ul class="phonexa_breadcrumbs breadcrumbs ">%s</ul>',
+                'wrappatt' => '<ul class="breadcrumbs breadcrumbs ">%s</ul>',
                 'linkpatt' => '<li><a href="%s"><span>%s</span></a></li>',
                 'sep_after' => '',
             );
@@ -225,7 +225,7 @@ class Phonexa_Breadcrumbs
 
             // все виды записей с терминами или термины
             if ($term && isset($term->term_id)) {
-                $term = apply_filters('phonexa_breadcrumbs_term', $term);
+                $term = apply_filters('breadcrumbs_term', $term);
 
                 // attachment
                 if (is_attachment()) {
@@ -283,7 +283,7 @@ class Phonexa_Breadcrumbs
         }
 
         // замена ссылки на архивную страницу для типа записи
-        $home_after = apply_filters('phonexa_breadcrumbs_home_after', '', $linkpatt, $sep, $ptype);
+        $home_after = apply_filters('breadcrumbs_home_after', '', $linkpatt, $sep, $ptype);
 
         if ('' === $home_after) {
             // Ссылка на архивную страницу типа записи для: отдельных страниц этого типа; архивов этого типа; таксономий связанных с этим типом.
@@ -306,11 +306,11 @@ class Phonexa_Breadcrumbs
 
         $before_out = sprintf($linkpatt, home_url(), $loc->home) . ($home_after ? $sep . $home_after : ($out ? $sep : ''));
 
-        $out = apply_filters('phonexa_breadcrumbs_pre_out', $out, $sep, $loc, $arg);
+        $out = apply_filters('breadcrumbs_pre_out', $out, $sep, $loc, $arg);
 
         $out = sprintf($wrappatt, $before_out . $out);
 
-        return apply_filters('phonexa_breadcrumbs', $out, $sep, $loc, $arg);
+        return apply_filters('breadcrumbs', $out, $sep, $loc, $arg);
     }
 
     function _page_crumbs($post)
@@ -379,8 +379,8 @@ class Phonexa_Breadcrumbs
  * 2.3 - ADD: Страница записей, когда для главной установлена отделенная страница.
  * 2.2 - ADD: Link to post type archive on taxonomies page
  * 2.1 - ADD: $sep, $loc, $args params to hooks
- * 2.0 - ADD: в фильтр 'phonexa_breadcrumbs_home_after' добавлен четвертый аргумент $ptype
- * 1.9 - ADD: фильтр 'phonexa_breadcrumbs_default_loc' для изменения локализации по умолчанию
+ * 2.0 - ADD: в фильтр 'breadcrumbs_home_after' добавлен четвертый аргумент $ptype
+ * 1.9 - ADD: фильтр 'breadcrumbs_default_loc' для изменения локализации по умолчанию
  * 1.8 - FIX: заметки, когда в рубрике нет записей
  * 1.7 - Улучшена работа с приоритетными таксономиями.
  */

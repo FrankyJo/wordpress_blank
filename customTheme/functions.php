@@ -21,6 +21,7 @@ require_once (APP_DIR . '/wpFilters.php');
 require_once(APP_DIR . '/actionAjax.php');
 require_once(APP_DIR . '/themeFunctions.php');
 
+require_once(APP_DIR . '/autoload.php');
 
 /**
  * classes loader
@@ -36,9 +37,9 @@ spl_autoload_register(function ($class) {
 
 function breadcrumbs($sep = ' > ', $l10n = array(), $args = array())
 {
-    $pb = new Phonexa_Breadcrumbs;
+    $pb = new Breadcrumbs;
     $l10n = [
-        'home' => 'Phonexa',
+        'home' => 'Home',
         'paged' => 'Page %d',
         '_404' => 'Error 404',
         'search' => 'Search',
