@@ -1,3 +1,7 @@
+Version 1.2.2
+
+- Edit webpack config. This config work with node 22.14.0
+
 Version 1.2.1
 
 - Add autoload.php for autoload all php files from folder
